@@ -74,6 +74,16 @@ $(document).ajaxComplete(function() {
   }, 500);
 });
 
+$('#save').on('click', function() {
+  save();
+  return false;
+})
+
+$('#build').on('click', function() {
+  build();
+  return false;
+})
+
 function getEditor(el, mode) {
   var ctrl = CodeMirror.keyMap["default"] == CodeMirror.keyMap.pcDefault ? "Ctrl-" : "Cmd-";
   var opt = {
