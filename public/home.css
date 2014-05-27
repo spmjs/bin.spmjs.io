@@ -508,7 +508,7 @@ a:hover {
   position: absolute;
   top: 50px;
   bottom: 0;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #d8d8d8;
   background-color: #F7F7F7 !important;
 }
 .panel.focus {
@@ -537,10 +537,10 @@ a:hover {
 
 .panel .CodeMirror {
   height: 100%;
-  font-family: SourceCodeProRegular, Menlo, Monaco, consolas, monospace;
-  font-size: 14px;
   background: transparent;
   line-height: 1.2em;
+  font-family: SourceCodeProRegular, Menlo, Monaco, consolas, monospace !important;
+  font-size: 14px;
   -webkit-transform: translateZ(0); /* Workaround for OSX antialias issue */
 }
 .panel .CodeMirror-gutters {
