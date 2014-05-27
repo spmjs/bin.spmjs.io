@@ -56,11 +56,11 @@ seajs.importStyle = function(cssText, id) {
   }
 }
 
-define("playground.spmjs.io/0.1.0/assets/js/home", ["jquery/2.1.0/jquery","playground.spmjs.io/0.1.0/assets/js/notifier","messenger/1.4.1/build/js/messenger","iframe/0.1.2/index","lodash/2.4.1/lodash","jquery/1.9.1/jquery","opentip/2.4.6/index"], function(require, exports, module){
+define("bin.spmjs.io/0.1.0/assets/js/home", ["jquery/2.1.0/jquery","bin.spmjs.io/0.1.0/assets/js/notifier","messenger/1.4.1/build/js/messenger","iframe/0.1.2/index","lodash/2.4.1/lodash","jquery/1.9.1/jquery","opentip/2.4.6/index"], function(require, exports, module){
 'use strict';
 
 var $ = require("jquery/2.1.0/jquery");
-var notifier = require("playground.spmjs.io/0.1.0/assets/js/notifier");
+var notifier = require("bin.spmjs.io/0.1.0/assets/js/notifier");
 
 var iframe = require("iframe/0.1.2/index");
 var _ = require("lodash/2.4.1/lodash");
@@ -9379,7 +9379,7 @@ return jQuery;
 }));
 
 });
-define("playground.spmjs.io/0.1.0/assets/js/notifier", ["jquery/2.1.0/jquery","messenger/1.4.1/build/js/messenger"], function(require, exports, module){
+define("bin.spmjs.io/0.1.0/assets/js/notifier", ["jquery/2.1.0/jquery","messenger/1.4.1/build/js/messenger"], function(require, exports, module){
 
 var $ = window.jQuery = require("jquery/2.1.0/jquery");
 require("messenger/1.4.1/build/js/messenger");
@@ -30836,6 +30836,6 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 });
 
-require("playground.spmjs.io/0.1.0/assets/js/home");
+require("bin.spmjs.io/0.1.0/assets/js/home");
 
 })();
