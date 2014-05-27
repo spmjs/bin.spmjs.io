@@ -1,5 +1,5 @@
 .DS_Store
 node_modules
 sea-modules
-spm-packages
+spm-packages/sea-modules
 data
