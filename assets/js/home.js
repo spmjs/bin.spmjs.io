@@ -18,7 +18,9 @@ $(document).ajaxComplete(function() {
 });
 
 $('#save').on('click', function() {
-  save();
+  if (!$(this).hasClass('button-disable')) {
+    save();
+  }
   return false;
 })
 
