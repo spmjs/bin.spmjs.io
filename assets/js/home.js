@@ -6,6 +6,8 @@ var notifier = require('./notifier');
 var iframe = require('iframe');
 var _ = require('lodash');
 
+require('opentip');
+
 $(document).ajaxStart(function() {
   $('#head .loader').removeClass('hidden');
 });

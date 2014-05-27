@@ -11,7 +11,9 @@
   <a class="brand" href="/">spmjs.bin</a>
   <ul>
     <% if (user) { %>
-    <li><a id="save" href="" class="button">save</a></li>
+      <li><a id="save" href="" class="button">save</a></li>
+    <% } else { %>
+      <li><a id="save" href="" class="button button-disable" data-ot="Login to save.">save</a></li>
     <% } %>
     <li><a id="build" href="" class="button">build</a></li>
     <% if (user) { %>

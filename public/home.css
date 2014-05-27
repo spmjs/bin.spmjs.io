@@ -534,9 +534,9 @@ html, body {
   margin-left: 8px;
 }
 
-.button {
+#head .button {
   border: 2px solid #00A1CB;
-  color: #00A1CB !important;
+  color: #00A1CB;
   background: none;
   font-size: 14px;
   float: left;
@@ -545,18 +545,22 @@ html, body {
   padding: 4px 12px;
   margin-top: 8px;
 }
-.button:hover {
-  color: #00c9fe !important;
+#head .button-disable {
+  color: #666 !important;
+  border: 2px solid #666 !important;
+}
+#head .button:hover {
+  color: #00c9fe;
   border: 2px solid #00c9fe;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
-#save {
-  color: #E54028 !important;
+#head #save {
+  color: #E54028;
   border: 2px solid #E54028;
 }
-#save:hover {
-  color: #eb6855 !important;
+#head #save:hover {
+  color: #eb6855;
   border: 2px solid #eb6855;
 }
 
