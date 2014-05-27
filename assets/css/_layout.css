@@ -18,6 +18,9 @@ html, body {
 
 #head .brand {
   margin-left: 8px;
+  text-shadow: 0 0 70px #FFF;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 #head ul {
   position: absolute;
