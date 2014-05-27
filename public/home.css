@@ -509,26 +509,30 @@ a:hover {
   top: 50px;
   bottom: 0;
   border-right: 1px solid #eee;
-  background: #F7F7F7;
+  background-color: #F7F7F7 !important;
 }
 .panel.focus {
-  background: #fff !important;
+  background-color: #fff !important;
 }
 #html {
   left: 0;
   right: 75%;
+  background: url(img/html.png) no-repeat center center;
 }
 #css {
   left: 25%;
   right: 50%;
+  background: url(img/css.png) no-repeat center center;
 }
 #js {
   left: 50%;
   right: 25%;
+  background: url(img/javascript.png) no-repeat center center;
 }
 #play {
   left: 75%;
   right: 0;
+  background: url(img/demo.png) no-repeat center center;
 }
 
 .panel .CodeMirror {
