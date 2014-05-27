@@ -1,5 +1,13 @@
 {
   "server": {
     "port": 3002
+  },
+  "github": {
+    "clientId": "",
+    "clientSecret": "",
+    "baseURL": "http://bin.spmjs.io/"
+  },
+  "spm": {
+    "source": "http://spmjs.io/"
   }
 }

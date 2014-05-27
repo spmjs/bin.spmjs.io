@@ -1,4 +1,4 @@
-# playground for spm@3x
+# spmjs.bin
 
 ## Thanks to:
 
