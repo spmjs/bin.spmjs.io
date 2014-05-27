@@ -6,5 +6,8 @@
     "clientId": "50ff27163def8202f92e",
     "clientSecret": "0a1672a183cfa279dfc0bdda817068824a1543e3",
     "baseURL": "http://127.0.0.1:3002/"
+  },
+  "spm": {
+    "source": "http://spmjs.io/"
   }
 }
