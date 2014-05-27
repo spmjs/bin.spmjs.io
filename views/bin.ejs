@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Play</title>
+</head>
+<body>
+
+  <style>
+<%- css %>
+  </style>
+
+<%- html %>
+
+  <script src="http://static.alipayobjects.com/??seajs/seajs/2.2.0/sea.js"></script>
+
+  <script>
+  seajs.config({
+    base: top.location.origin
+  });
+  seajs.config({
+    alias: <%- JSON.stringify(alias) %>
+  });
+  </script>
+
+  <script>
+  define('main', function(require) {
+<%- js %>
+  });
+  seajs.use('main');
+  </script>
+  
+</body>
+</html>

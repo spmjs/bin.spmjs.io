@@ -1,0 +1,28 @@
+
+@import url('normalize.css');
+@import url('./_layout.css');
+@import url('./_utils.css');
+
+body {
+  font-size: 0.8em;
+  font-family: "Helvetica Neue", "Luxi Sans", STHeiti, arial;
+}
+body:before {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  content: "";
+  height: 10px;
+  left: 0;
+  position: fixed;
+  top: -10px;
+  width: 100%;
+  z-index: 1000;
+}
+
+a {
+  color: #2EA3D0;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+

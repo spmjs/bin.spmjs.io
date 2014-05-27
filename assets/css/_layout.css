@@ -1,0 +1,40 @@
+
+html, body {
+  overflow: hidden;
+}
+
+#head-wrap {
+  background: #444;
+  height: 50px;
+  line-height: 50px;
+}
+#head {
+  position: relative;
+  font-size: 18px;
+}
+#head a {
+  color: #fff;
+}
+
+#head .brand {
+  margin-left: 8px;
+}
+#head ul {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  list-style: none;
+  margin: 0;
+  color: #fff;
+}
+#head li {
+  float: left;
+  margin-left: 8px;
+}
+
+#foot-wrap {
+  margin-top: 40px;
+}
+#foot {
+  font-size: 14px;
+}

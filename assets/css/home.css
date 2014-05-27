@@ -1,0 +1,59 @@
+
+@import url('./_common.css');
+
+.panel {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  border-right: 1px solid #eee;
+  background: #F7F7F7;
+}
+.panel.focus {
+  background: #fff !important;
+}
+#html {
+  left: 0;
+  right: 75%;
+}
+#css {
+  left: 25%;
+  right: 50%;
+}
+#js {
+  left: 50%;
+  right: 25%;
+}
+#play {
+  left: 75%;
+  right: 0;
+}
+
+.panel .CodeMirror {
+  height: 100%;
+  font-family: SourceCodeProRegular, Menlo, Monaco, consolas, monospace;
+  font-size: 14px;
+  background: transparent;
+  line-height: 1.2em;
+  -webkit-transform: translateZ(0); /* Workaround for OSX antialias issue */
+}
+.panel .CodeMirror-gutters {
+  background: transparent;
+  border-right: 0;
+}
+.panel .CodeMirror-scroll {
+  height: 100%;
+}
+.panel .CodeMirror div.CodeMirror-selected {
+  background: rgba(0,0,0,0.1);
+}
+.panel .CodeMirror-focused div.CodeMirror-selected {
+  background: rgba(0,0,255,0.1);
+}
+.panel .CodeMirror .errorLine {
+  background: rgba(255,0,0,0.25);
+}
+.panel .CodeMirror .esprima-error {
+  color: #f00;
+  text-align: right;
+  padding: 0px 20px;
+}
