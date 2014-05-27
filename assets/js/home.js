@@ -1,6 +1,8 @@
 'use strict';
 
 var $ = require('jquery');
+var notifier = require('./notifier');
+
 var iframe = require('iframe');
 var _ = require('lodash');
 
@@ -91,13 +93,18 @@ function remoteSave(data) {
       updatePlay(html);
     },
     error: function(xhr, statusCode, errorCode) {
+
       if (errorCode === 'Unauthorized') {
-        alert('Unauthorized. Please login first.');
+        notifier.error('Unauthorized. Please login first.');
       } else if (errorCode === 'Forbidden') {
-        alert('Forbidden. It\'s not your bin.');
+        notifier.error('Forbidden. It\'s not your bin.');
+      } else if (errorCode === 'Internal Server Error') {
+        var errorMsg = xhr.getResponseHeader('error');
+        if (errorMsg) {
+          notifier.error(errorMsg);
+        }
       } else {
-        console.log('errorCode: ' + errorCode);
-        alert('404');
+        notifier.error('404');
       }
     }
   });
@@ -109,8 +116,11 @@ function remoteBuild(data) {
     method: 'post',
     data: data,
     success: updatePlay,
-    error: function(xhr, statusCode) {
-      console.log(statusCode);
+    error: function(xhr, statusCode, errorCode) {
+      var errorMsg = xhr.getResponseHeader('error');
+      if (errorMsg) {
+        notifier.error(errorMsg);
+      }
     }
   });
 }

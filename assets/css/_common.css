@@ -2,6 +2,7 @@
 @import url('normalize.css');
 @import url('./_layout.css');
 @import url('./_utils.css');
+@import url('messenger-theme-flat');
 
 body {
   font-size: 0.8em;
