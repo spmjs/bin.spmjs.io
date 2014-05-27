@@ -85,7 +85,7 @@ function getEditor(el, mode) {
   return editor;
 }
 
-var htmlEditor = getEditor($('#html')[0], 'html');
+var htmlEditor = getEditor($('#html')[0], 'htmlmixed');
 var cssEditor = getEditor($('#css')[0], 'css');
 var jsEditor = getEditor($('#js')[0], 'javascript');
 
