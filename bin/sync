@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+'use strict';
+
+require('../config');
+var sync = require('../lib/sync');
+var request = require('request');
+var program = require('commander');
+var cheerio = require('cheerio');
+var _ = require('lodash');
+
+program
+  .usage('OPTIONS')
+  .option('--all', 'sync all')
+  .option('--lastest', 'sync last')
+  .parse(process.argv);
+
+if (program.all) {
+  console.log('all');
+  request(g_config.spm.source + 'repository', function(err, res, body) {
+    var pkgs = JSON.parse(body);
+    sync.installPkgs(pkgs);
+  });
+}
+
+else if (program.lastest) {
+  console.log('lastest');
+  request('http://spmjs.io/', function(err, res, body) {
+    var $ = cheerio.load(body);
+    var els = $('.index-list:first-child li a');
+    var pkgs = _.map(els, function(el) {
+      return $(el).html();
+    });
+    console.log(pkgs.join(','));
+    sync.installPkgs(pkgs);
+  })
+}
