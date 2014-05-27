@@ -1,8 +1,10 @@
 'use strict';
 
 var detective = require('detective');
+var fs = require('fs');
 var read = require('fs').readFileSync;
 var join = require('path').join;
+var extname = require('path').extname;
 var format = require('util').format;
 
 exports.github = require('./github');
@@ -18,11 +20,18 @@ exports.home = function(req, res) {
 };
 
 exports.module = function(req, res) {
-  var pkg = req.param('pkg');
-  var version = req.param('version');
-  var version = req.param('version');
-  var main = req.param('main');
+  req.accepts('html');
+
+  var pkg = req.params[0];
+  var version = req.params[1];
+  var main = req.params[2];
   var file = format('../spm-packages/sea-modules/%s/%s/%s', pkg, version, main);
   file = join(__dirname, file);
-  res.send(format('define(function(require, exports, module) {\n%s\n});', read(file, 'utf-8')));
+
+  if (extname(file) === '.js') {
+    var fileContent = read(file, 'utf-8');
+    res.send(format('define(function(require, exports, module) {\n%s\n});', fileContent));
+  } else {
+    fs.createReadStream(file).pipe(res);
+  }
 };

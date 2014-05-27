@@ -95,7 +95,7 @@ function remoteSave(data) {
     error: function(xhr, statusCode, errorCode) {
 
       if (errorCode === 'Unauthorized') {
-        notifier.error('Unauthorized. Please login first.');
+        notifier.error('Unauthorized. Please <a href="/login">login</a> first.');
       } else if (errorCode === 'Forbidden') {
         notifier.error('Forbidden. It\'s not your bin.');
       } else if (errorCode === 'Internal Server Error') {

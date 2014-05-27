@@ -26,7 +26,7 @@ app.use(require('serve-favicon')(__dirname + '/public/img/favicon.ico'));
 // Routes.
 
 app.get('/', routes.home);
-app.get('/sea-modules/:pkg/:version/:main', routes.module);
+app.get(/\/sea-modules\/([^\/]+?)\/([^\/]+?)\/(.*)$/, routes.module);
 
 app.post('/save', routes.bin.save);
 app.post('/build', routes.bin.build);
