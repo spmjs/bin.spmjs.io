@@ -23,7 +23,12 @@ exports.save = function(req, res) {
     }
 
     res.header('bin_id', result._id);
-    res.render('bin', build(result));
+    try {
+      res.render('bin', build(result));
+    } catch(e) {
+      res.header('error', e);
+      res.send(500);
+    }
   });
 };
 
@@ -34,7 +39,13 @@ exports.build = function(req, res) {
     js: req.param('js')
   };
   
-  res.render('bin', build(data));
+  try {
+    res.render('bin', build(data));
+  } catch(e) {
+    console.log('error: ', e.message);
+    res.header('error', e.message);
+    res.send(500);
+  }
 };
 
 exports.show = function(req, res) {

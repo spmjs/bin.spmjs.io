@@ -1,19 +1,28 @@
 
+@import url('./loader.css');
+
 html, body {
   overflow: hidden;
 }
 
 #head-wrap {
   background: #444;
-  height: 50px;
-  line-height: 50px;
+  height: 46px;
+  line-height: 46px;
 }
 #head {
   position: relative;
   font-size: 18px;
+  overflow: hidden;
 }
 #head a {
   color: #fff;
+}
+#head .loader {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  opacity: 0.5;
 }
 
 #head .brand {

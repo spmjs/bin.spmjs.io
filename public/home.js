@@ -63,6 +63,15 @@ var $ = require("jquery/2.1.0/jquery");
 var iframe = require("iframe/0.1.2/index");
 var _ = require("lodash/2.4.1/lodash");
 
+$(document).ajaxStart(function() {
+  $('#head .loader').removeClass('hidden');
+});
+$(document).ajaxComplete(function() {
+  setTimeout(function() {
+    $('#head .loader').addClass('hidden');
+  }, 500);
+});
+
 function getEditor(el, mode) {
   var ctrl = CodeMirror.keyMap["default"] == CodeMirror.keyMap.pcDefault ? "Ctrl-" : "Cmd-";
   var opt = {

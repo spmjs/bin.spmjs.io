@@ -4,6 +4,15 @@ var $ = require('jquery');
 var iframe = require('iframe');
 var _ = require('lodash');
 
+$(document).ajaxStart(function() {
+  $('#head .loader').removeClass('hidden');
+});
+$(document).ajaxComplete(function() {
+  setTimeout(function() {
+    $('#head .loader').addClass('hidden');
+  }, 500);
+});
+
 function getEditor(el, mode) {
   var ctrl = CodeMirror.keyMap["default"] == CodeMirror.keyMap.pcDefault ? "Ctrl-" : "Cmd-";
   var opt = {
