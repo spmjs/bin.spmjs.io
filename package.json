@@ -13,7 +13,10 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.2.0",
+    "cheerio": "~0.16.0",
+    "commander": "~2.2.0",
     "cookie-parser": "^1.1.0",
+    "css-imports": "~0.3.0",
     "detective": "^3.1.0",
     "ejs": "^1.0.0",
     "express": "^4.3.0",
@@ -26,9 +29,7 @@
     "serve-favicon": "^2.0.0",
     "serve-static": "^1.1.0",
     "spm": "^3.0.0-rc15",
-    "css-imports": "~0.3.0",
-    "commander": "~2.2.0",
-    "cheerio": "~0.16.0"
+    "spm-tree": "^0.2.0"
   },
   "spm": {
     "output": [

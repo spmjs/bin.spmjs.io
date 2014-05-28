@@ -95,7 +95,7 @@ function getEditor(el, mode) {
     mode: mode,
     lineNumbers: true,
     matchBrackets: true,
-    indentWithTabs: true,
+    indentWithTabs: false,
     tabSize: 2,
     indentUnit: 2,
     styleActiveLine: true,
