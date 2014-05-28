@@ -2,6 +2,7 @@
 
 var binModel = require('../models/bin');
 var _ = require('lodash');
+var detective = require('detective');
 var build = require('../lib/build');
 
 exports.save = function(req, res) {
@@ -14,6 +15,7 @@ exports.save = function(req, res) {
     html: req.param('html'),
     css: req.param('css'),
     js: req.param('js'),
+    deps: detective(req.param('js')),
     user: req.session.user
   };
 

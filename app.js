@@ -6,11 +6,14 @@ var express = require('express');
 var http = require('http');
 var join = require('path').join;
 var routes = require('./routes');
+var _ = require('lodash');
 
 var app = express();
 
 ///////////////////////
 // Config.
+
+_.extend(app.locals, require('./lib/helper'));
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'ejs');

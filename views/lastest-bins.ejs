@@ -4,7 +4,19 @@
 
 <ul>
   <% bins.forEach(function(bin) { %>
-  <li><a href="/bins/<%= bin._id %>/edit"><%= bin._id %></a></li>
+  <li>
+    <a target="_blank" href="/bins/<%= bin._id %>/edit"><%= bin._id %></a>
+    <% if(bin.deps) { %>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    (
+      <% bin.deps.forEach(function(dep) { %>
+      <a target="_blank" href="http://spmjs.io/package/<%= dep %>"><%= dep %></a>
+      <% }); %>
+    )
+
+    <%= fromNow(bin.updated_at) %>
+    <% } %>
+  </li>
   <% }) %>
 </ul>
 

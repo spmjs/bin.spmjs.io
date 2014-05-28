@@ -23,6 +23,7 @@
     "express-session": "^1.2.0",
     "github-token": "^0.1.0",
     "lodash": "^2.4.1",
+    "moment": "^2.6.0",
     "morgan": "^1.1.1",
     "nedb": "^0.10.5",
     "request": "^2.36.0",
