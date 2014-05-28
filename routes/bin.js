@@ -27,7 +27,7 @@ exports.save = function(req, res) {
 
     res.header('bin_id', result._id);
     try {
-      res.render('bin', build(result));
+      res.render('bins/show', build(result));
     } catch(e) {
       res.header('error', e);
       res.send(500);
@@ -43,7 +43,7 @@ exports.build = function(req, res) {
   };
   
   try {
-    res.render('bin', build(data));
+    res.render('bins/show', build(data));
   } catch(e) {
     console.log('error: ', e.message);
     res.header('error', e.message);
