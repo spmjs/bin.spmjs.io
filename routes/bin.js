@@ -4,6 +4,7 @@ var binModel = require('../models/bin');
 var _ = require('lodash');
 var detective = require('detective');
 var build = require('../lib/build');
+var imports = require('css-imports');
 
 exports.save = function(req, res) {
   if (!req.session.user) {
@@ -15,7 +16,7 @@ exports.save = function(req, res) {
     html: req.param('html'),
     css: req.param('css'),
     js: req.param('js'),
-    deps: detective(req.param('js')),
+    deps: getDeps(req.param('css'), req.param('js')),
     user: req.session.user
   };
 
@@ -51,15 +52,23 @@ exports.build = function(req, res) {
 };
 
 exports.index = function(req, res) {
-  if (!req.session.user) {
-    return res.send(401);
-  }
-
-  binModel.getByUser(req.session.user, function(err, result) {
-    res.render('bins/index', {
-      user: req.session.user,
-      bins: result
-    });
+  binModel.getLast(function(err, publicBins) {
+    // eeeee..
+    if (req.session.user) {
+      binModel.getByUser(req.session.user, function(err, bins) {
+        res.render('bins/index', {
+          user: req.session.user,
+          bins: bins,
+          publicBins: publicBins
+        });
+      });
+    } else {
+      res.render('bins/index', {
+        user: req.session.user,
+        bins: null,
+        publicBins: publicBins
+      });
+    }
   });
 };
 
@@ -80,3 +89,16 @@ exports.edit = function(req, res) {
     }));
   });
 };
+
+function getDeps(cssCode, jsCode) {
+  var cssDeps = imports(cssCode).map(function(dep) {
+    return dep.path;
+  }).filter(isNotRelative);
+  var jsDeps = detective(jsCode).filter(isNotRelative);
+
+  return Array.prototype.concat.apply(cssDeps, jsDeps);
+}
+
+function isNotRelative(filepath) {
+  return filepath.charAt(0) != '.';
+}

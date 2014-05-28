@@ -19,7 +19,7 @@ exports.save = function(id, data, callback) {
         return callback(403);
       }
 
-      data.updated_at = new Date();
+      data.updated_at = +new Date();
       bin.update({_id: id}, data, {upsert: true}, function(err, result) {
         callback && callback(null, data);
       });
@@ -27,7 +27,7 @@ exports.save = function(id, data, callback) {
   }
 
   else {
-    data.created_at = data.updated_at = new Date();
+    data.created_at = data.updated_at = +new Date();
     bin.insert(data, function(err, result) {
       callback && callback(null, result);
     });
@@ -35,9 +35,15 @@ exports.save = function(id, data, callback) {
 };
 
 exports.getByUser = function(user, callback) {
-  bin.find({user: user}).sort({_id:-1}).exec(function(err, result) {
+  bin.find({user: user}).sort({updated_at:-1}).limit(10).exec(function(err, result) {
     callback && callback(null, result);
   });
+};
+
+exports.getLast = function(callback) {
+  bin.find({}).sort({updated_at:-1}).limit(20).exec(function(err, result) {
+    callback && callback(null, result);
+  })
 };
 
 var getById = exports.getById = function(id, callback) {

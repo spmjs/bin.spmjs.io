@@ -1,9 +1,11 @@
 <% include ../_head %>
 
-<link rel="stylesheet" href="/lastest-bins.css" />
+<link rel="stylesheet" href="/bins.css" />
 
 <div id="content">
-<h2>Lastest Bins</h2>
+
+<% if (bins) { %>
+<h2>Your Bins</h2>
 
 <ul>
   <% bins.forEach(function(bin) { %>
@@ -14,7 +16,7 @@
   
     <span>
     <% bin.deps.forEach(function(dep) { %>
-    [<a href="http://spmjs.io/package/<%= dep %>"><%= dep %></a>]
+    <a href="http://spmjs.io/package/<%= dep %>"><%= dep %></a>
     <% }); %>
     </span>
 
@@ -24,6 +26,35 @@
   </li>
   <% }) %>
 </ul>
+
+<br /><br />
+<% } %>
+
+<h2>Public Bins</h2>
+
+<ul>
+  <% publicBins.forEach(function(bin) { %>
+  <li>
+    <a href="/bins/<%= bin._id %>/edit"><%= bin._id %></a>
+    &nbsp;
+    by
+    <a href="http://spmjs.io/account/<%= bin.user %>"><%= bin.user %></a>
+    <% if(bin.deps) { %>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  
+    <span>
+    <% bin.deps.forEach(function(dep) { %>
+    <a href="http://spmjs.io/package/<%= dep %>"><%= dep %></a>
+    <% }); %>
+    </span>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= fromNow(bin.updated_at) %>
+    <% } %>
+  </li>
+  <% }) %>
+</ul>
+
 </div>
 
 <% include ../_foot %>
