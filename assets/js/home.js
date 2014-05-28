@@ -4,7 +4,7 @@ var $ = require('jquery');
 var notifier = require('./notifier');
 
 var iframe = require('iframe');
-var _ = require('lodash');
+var extend = require('extend');
 
 require('opentip');
 
@@ -90,7 +90,7 @@ function remoteSave(data) {
   // Update exist bin
   var id = getId();
   if (id) {
-    _.extend(data, {
+    extend(data, {
       id: id
     });
   }

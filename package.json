@@ -38,13 +38,14 @@
     ],
     "dependencies": {
       "normalize.css": "3.0.1",
-      "jquery": "2.1.0",
+      "jquery": "1.9.1",
       "iframe": "0.1.2",
       "lodash": "2.4.1",
       "keymaster": "1.6.2",
       "messenger": "1.4.1",
       "messenger-theme-flat": "0.1.0",
-      "opentip": "2.4.6"
+      "opentip": "2.4.6",
+      "extend": "1.0.0"
     }
   },
   "amb": {
