@@ -19,6 +19,7 @@ exports.save = function(id, data, callback) {
         return callback(403);
       }
 
+      data.updated_at = new Date();
       bin.update({_id: id}, data, {upsert: true}, function(err, result) {
         callback && callback(null, data);
       });
@@ -26,6 +27,7 @@ exports.save = function(id, data, callback) {
   }
 
   else {
+    data.created_at = new Date();
     bin.insert(data, function(err, result) {
       callback && callback(null, result);
     });
