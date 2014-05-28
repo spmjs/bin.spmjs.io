@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>spmjs.bin</title>
+  <link rel="stylesheet" href="/common.css" />
 </head>
 <body>
 
@@ -17,7 +18,7 @@
     <% } %>
     <li><a id="build" href="" class="button">build</a></li>
     <% if (user) { %>
-      <li>hi, <%= user %> &nbsp;&nbsp;<a href="/logout">logout</a></li>
+      <li>hi, <a href="/bins"><%= user %></a> &nbsp;&nbsp;<a href="/logout">logout</a></li>
     <% } else { %>
       <li><a href="/login">login</a></li>
     <% } %>

@@ -33,7 +33,9 @@ exports.save = function(id, data, callback) {
 };
 
 exports.getByUser = function(user, callback) {
-
+  bin.find({user: user}).sort({_id:-1}).exec(function(err, result) {
+    callback && callback(null, result);
+  });
 };
 
 var getById = exports.getById = function(id, callback) {

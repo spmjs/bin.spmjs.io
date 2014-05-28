@@ -30,6 +30,7 @@ app.get(/\/sea-modules\/([^\/]+?)\/([^\/]+?)\/(.*)$/, routes.module);
 
 app.post('/save', routes.bin.save);
 app.post('/build', routes.bin.build);
+app.get('/bins', routes.bin.index);
 app.get('/bins/:id', routes.bin.show);
 app.get('/bins/:id/edit', routes.bin.edit);
 

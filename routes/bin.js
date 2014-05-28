@@ -48,6 +48,19 @@ exports.build = function(req, res) {
   }
 };
 
+exports.index = function(req, res) {
+  if (!req.session.user) {
+    return res.send(401);
+  }
+
+  binModel.getByUser(req.session.user, function(err, result) {
+    res.render('lastest-bins', {
+      user: req.session.user,
+      bins: result
+    });
+  });
+};
+
 exports.show = function(req, res) {
   var id = req.param('id');
   binModel.getById(id, function(err, result) {

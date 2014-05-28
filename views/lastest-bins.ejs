@@ -1,0 +1,11 @@
+<% include _head %>
+
+<h2>Lastest Bins</h2>
+
+<ul>
+  <% bins.forEach(function(bin) { %>
+  <li><a href="/bins/<%= bin._id %>/edit"><%= bin._id %></a></li>
+  <% }) %>
+</ul>
+
+<% include _foot %>
