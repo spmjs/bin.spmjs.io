@@ -76,7 +76,7 @@ exports.show = function(req, res) {
   var id = req.param('id');
   binModel.getById(id, function(err, result) {
     if (!result) return res.send(404);
-    res.render('bin', build(result));
+    res.render('bins/show', build(result));
   });
 };
 
