@@ -15,7 +15,7 @@ exports.save = function(id, data, callback) {
         return callback(404);
       }
       if (result.user != data.user) {
-        // FIXME: not property
+        // FIXME: 403 is not properly
         return callback(403);
       }
 
@@ -30,6 +30,10 @@ exports.save = function(id, data, callback) {
       callback && callback(null, result);
     });
   }
+};
+
+exports.getByUser = function(user, callback) {
+
 };
 
 var getById = exports.getById = function(id, callback) {
