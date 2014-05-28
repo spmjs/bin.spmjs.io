@@ -1,0 +1,29 @@
+<% include ../_head %>
+
+<link rel="stylesheet" href="/lastest-bins.css" />
+
+<div id="content">
+<h2>Lastest Bins</h2>
+
+<ul>
+  <% bins.forEach(function(bin) { %>
+  <li>
+    <a target="_blank" href="/bins/<%= bin._id %>/edit"><%= bin._id %></a>
+    <% if(bin.deps) { %>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  
+    <span>
+    <% bin.deps.forEach(function(dep) { %>
+    [<a target="_blank" href="http://spmjs.io/package/<%= dep %>"><%= dep %></a>]
+    <% }); %>
+    </span>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= fromNow(bin.updated_at) %>
+    <% } %>
+  </li>
+  <% }) %>
+</ul>
+</div>
+
+<% include ../_foot %>

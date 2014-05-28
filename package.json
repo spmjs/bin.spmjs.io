@@ -36,7 +36,7 @@
     "output": [
       "assets/css/common.css",
       "assets/css/home.css",
-      "assets/css/lastest-bins.css",
+      "assets/css/bins.css",
       "assets/js/home.js"
     ],
     "dependencies": {

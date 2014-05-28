@@ -56,7 +56,7 @@ exports.index = function(req, res) {
   }
 
   binModel.getByUser(req.session.user, function(err, result) {
-    res.render('lastest-bins', {
+    res.render('bins/index', {
       user: req.session.user,
       bins: result
     });
