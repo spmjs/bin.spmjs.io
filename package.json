@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "export NODE_ENV=production && ./node_modules/forever/bin/forever start app.js",
-    "stop": "./node_modules/forever/bin/forever stop app.js",
+    "start": "export NODE_ENV=production && ./node_modules/forever/bin/forever start -l bin.spmjs.log -a scripts/bin.spmjs.js",
+    "stop": "./node_modules/forever/bin/forever stop scripts/bin.spmjs.js",
     "startdev": "nodemon -i ./public/ -i ./assets/ -i ./spm-packages/ app.js",
     "test": "./node_modules/.bin/mocha --reporter spec --require should ./test/"
   },
