@@ -1,4 +1,7 @@
 
+@import url('./codemirror.css');
+@import url('./solarized.css');
+
 .panel {
   position: absolute;
   top: 50px;

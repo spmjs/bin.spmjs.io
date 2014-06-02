@@ -46,7 +46,8 @@
       "messenger": "1.4.1",
       "messenger-theme-flat": "0.1.0",
       "opentip": "2.4.6",
-      "extend": "1.0.0"
+      "extend": "1.0.0",
+      "topbar": "0.1.2"
     }
   },
   "amb": {

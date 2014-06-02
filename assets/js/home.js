@@ -5,15 +5,16 @@ var notifier = require('./notifier');
 
 var iframe = require('iframe');
 var extend = require('extend');
+var topbar = require('topbar');
 
 require('opentip');
 
 $(document).ajaxStart(function() {
-  $('#head .loader').removeClass('hidden');
+  topbar.show();
 });
 $(document).ajaxComplete(function() {
   setTimeout(function() {
-    $('#head .loader').addClass('hidden');
+    topbar.hide();
   }, 500);
 });
 
