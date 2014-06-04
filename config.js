@@ -1,5 +1,5 @@
 'use strict';
 
-global.g_config = process.env.NODE_ENV === 'production'
-  ? require('./config/base-production.json')
+var isProduction = process.env.NODE_ENV === 'production';
+global.g_config = isProduction ? require('./config/base-production.json')
   : require('./config/base.json');

@@ -1,5 +1,3 @@
-'use strict';
-
 var request = require('request');
 var account = require('../models/account');
 
@@ -17,7 +15,7 @@ exports.login = function(req, res) {
   } else {
     res.redirect('/');
   }
-}
+};
 
 exports.logout = function(req, res) {
   req.session.user = null;
@@ -32,7 +30,7 @@ exports.callback = function(req, res, next) {
       var opts = {headers: {'User-Agent': 'spmjsbin'}};
       request(url, opts, function(err, response, body) {
         if (err) return next(err);
-        if (response.statusCode != 200) {
+        if (response.statusCode !== 200) {
           return next('statusCode is ' + response.statusCode);
         }
 

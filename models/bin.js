@@ -8,19 +8,25 @@ var bin = new nedb({
   autoload: true
 });
 
+var getById = exports.getById = function(id, callback) {
+  bin.findOne({_id: id}, function(err, result) {
+    callback && callback(null, result);
+  });
+};
+
 exports.save = function(id, data, callback) {
   if (id) {
     getById(id, function(err, result) {
       if (!result) {
         return callback(404);
       }
-      if (result.user != data.user) {
+      if (result.user !== data.user) {
         // FIXME: 403 is not properly
         return callback(403);
       }
 
       data.updated_at = +new Date();
-      bin.update({_id: id}, data, {upsert: true}, function(err, result) {
+      bin.update({_id: id}, data, {upsert: true}, function() {
         callback && callback(null, data);
       });
     });
@@ -42,12 +48,6 @@ exports.getByUser = function(user, callback) {
 
 exports.getLast = function(callback) {
   bin.find({}).sort({updated_at:-1}).limit(20).exec(function(err, result) {
-    callback && callback(null, result);
-  })
-};
-
-var getById = exports.getById = function(id, callback) {
-  bin.findOne({_id: id}, function(err, result) {
     callback && callback(null, result);
   });
 };

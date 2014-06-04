@@ -1,5 +1,3 @@
-'use strict';
-
 var join = require('path').join;
 var nedb = require('nedb');
 
@@ -9,7 +7,7 @@ var account = new nedb({
 });
 
 exports.save = function(id, data, callback) {
-  account.update({login: id}, data, {upsert: true}, function(err) {
+  account.update({login: id}, data, {upsert: true}, function() {
     callback && callback(data);
   });
 };

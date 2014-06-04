@@ -1,6 +1,3 @@
-'use strict';
-
-var detective = require('detective');
 var fs = require('fs');
 var read = require('fs').readFileSync;
 var join = require('path').join;

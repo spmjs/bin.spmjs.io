@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-'use strict';
 
 require('../config');
 var sync = require('../lib/sync');
@@ -32,5 +31,5 @@ else if (program.lastest) {
     });
     console.log(pkgs.join(','));
     sync.installPkgs(pkgs);
-  })
+  });
 }

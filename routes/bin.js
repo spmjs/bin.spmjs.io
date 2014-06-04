@@ -1,5 +1,3 @@
-'use strict';
-
 var binModel = require('../models/bin');
 var _ = require('lodash');
 var detective = require('detective');
@@ -100,5 +98,5 @@ function getDeps(cssCode, jsCode) {
 }
 
 function isNotRelative(filepath) {
-  return filepath.charAt(0) != '.';
+  return filepath.charAt(0) !== '.';
 }
