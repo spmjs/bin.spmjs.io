@@ -1,5 +1,3 @@
-'use strict';
-
 require('./config');
 
 var express = require('express');
@@ -18,10 +16,10 @@ _.extend(app.locals, require('./lib/helper'));
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(require('morgan')());
+app.use(require('serve-spm')(join(__dirname, 'public')));
 app.use(require('body-parser')());
 app.use(require('cookie-parser')());
 app.use(require('express-session')({secret:'keyboard cat',key:'sid'}));
-app.use(require('serve-static')(join(__dirname, 'bower_components')));
 app.use(require('serve-static')(join(__dirname, 'public')));
 app.use(require('serve-favicon')(__dirname + '/public/img/favicon.ico'));
 
